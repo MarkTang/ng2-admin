@@ -1,10 +1,13 @@
 import { app, BrowserWindow } from 'electron';
+import { DatabaseManager } from './electron/database';
 
 let win: Electron.BrowserWindow;
+let database: DatabaseManager;
 
 function createWindow () {
   // Create the browser window.
   win = new BrowserWindow({width: 800, height: 600});
+  database = new DatabaseManager(app);
 
   // and load the index.html of the app.
   win.loadURL(`file://${__dirname}/index.html`);
